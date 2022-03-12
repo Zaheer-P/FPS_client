@@ -56,7 +56,6 @@ public class ClientHandle : MonoBehaviour
     public static void PlayerDisconnected(Packet _packet)
     {
         int _id = _packet.ReadInt();
-        Debug.Log(_id);
         Destroy(GameManager.players[_id].gameObject);
         Debug.Log("game object gone");
         GameManager.players.Remove(_id);
