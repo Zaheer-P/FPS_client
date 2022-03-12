@@ -1139,7 +1139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localPlayerPrefab: {fileID: 6061189495516513110, guid: e2df26fe6728cc044b0abebe4c0bb5ea, type: 3}
-  PlayerPrefab: {fileID: 7416048579306790920, guid: cb6ae0ea928bfbe429b7cb60ad340292, type: 3}
+  PlayerPrefab: {fileID: 6061189495516513110, guid: 0f3c24eb00e35be438b0c9a373bda1b8, type: 3}
 --- !u!4 &1949547071
 Transform:
   m_ObjectHideFlags: 0

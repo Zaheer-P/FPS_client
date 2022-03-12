@@ -916,6 +916,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   username: 
+  health: 0
+  maxHealth: 100
+  model: {fileID: 6061189495511305768}
 --- !u!143 &3351511543372748222
 CharacterController:
   m_ObjectHideFlags: 0
@@ -933,7 +936,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &6061189495516513112
 GameObject:
   m_ObjectHideFlags: 0
