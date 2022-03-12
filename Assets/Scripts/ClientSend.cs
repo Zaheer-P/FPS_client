@@ -27,14 +27,14 @@ public class ClientSend : MonoBehaviour
         }
     }
 
-    public static void UDPTestReceived()
-    {
-        using (Packet _packet = new Packet((int)ClientPackets.udpTestReceived))
-        {
-            _packet.Write("recived packet via udp");
-            SendUDPData(_packet);
-        }
-    }
+   // public static void UDPTestReceived()
+   // {
+   //     using (Packet _packet = new Packet((int)ClientPackets.udpTestReceived))
+   //     {
+   //         _packet.Write("recived packet via udp");
+   //         SendUDPData(_packet);
+   //     }
+   // }
 
     public static void PlayerMovement(bool[] _inputs)
     {
@@ -48,6 +48,15 @@ public class ClientSend : MonoBehaviour
             _packet.Write(GameManager.players[Client.instance.myId].transform.rotation);
 
             SendUDPData(_packet);
+        }
+    }
+
+    public static void PlayerShoot(Vector3 _facing)
+    {
+        using (Packet _packet = new Packet((int)ClientPackets.playerShoot))
+        {
+            _packet.Write(_facing);
+            SendTCPData(_packet);
         }
     }
     #endregion

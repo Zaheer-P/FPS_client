@@ -24,7 +24,7 @@ public class ClientHandle : MonoBehaviour
         string _msg = _packet.ReadString();
 
         Debug.Log($"msg form server(UDP) {_msg}");
-        ClientSend.UDPTestReceived();
+       // ClientSend.UDPTestReceived();
     }
 
     public static void SpawnPlayer(Packet _packet)
@@ -32,6 +32,7 @@ public class ClientHandle : MonoBehaviour
         int _id = _packet.ReadInt();
         string _username = _packet.ReadString();
         Vector3 _position = _packet.ReadVector3();
+        Debug.Log(_position);
         Quaternion _rotation = _packet.ReadQuaternion();
         GameManager.instance.SpawnPlayer(_id, _username, _position, _rotation);
     }

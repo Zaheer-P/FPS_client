@@ -18,7 +18,7 @@ public enum ClientPackets
 {
     welcomeReceived = 1,
     playerMovement,
-    udpTestReceived,
+    playerShoot,
     
 }
 
