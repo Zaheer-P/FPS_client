@@ -1204,6 +1204,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   username: 
+  health: 0
+  maxHealth: 100
+  model: {fileID: 0}
 --- !u!143 &1604261274707438262
 CharacterController:
   m_ObjectHideFlags: 0
