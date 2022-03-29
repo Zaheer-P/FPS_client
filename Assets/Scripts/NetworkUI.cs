@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class NetworkUI : MonoBehaviour
 {
     public static NetworkUI instance;
-    public static GameObject mainMenu;
-    public InputField usernameField;
+    public TMPro.TMP_InputField usernameField;
 
     //singleton implentation only allows on one instance
     private void Awake()
