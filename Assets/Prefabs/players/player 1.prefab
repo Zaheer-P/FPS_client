@@ -852,7 +852,7 @@ GameObject:
   - component: {fileID: 3351511543372748222}
   m_Layer: 0
   m_Name: player 1
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -918,6 +918,7 @@ MonoBehaviour:
   username: 
   health: 0
   maxHealth: 100
+  itemCount: 0
   model: {fileID: 6061189495511305768}
 --- !u!143 &3351511543372748222
 CharacterController:
