@@ -139,8 +139,12 @@ public class ClientHandle : MonoBehaviour
         int _projectileId = _packet.ReadInt();
         Vector3 _position = _packet.ReadVector3();
 
+        if (GameManager.projectiles.TryGetValue(_projectileId, out ProjectileManager _projectile))
+        {
+            _projectile.Explode(_position);
 
-        GameManager.projectiles[_projectileId].Explode(_position);
+        }
+        
     }
 
     public static void SpawnEnemy(Packet _packet)
