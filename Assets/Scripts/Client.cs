@@ -11,7 +11,7 @@ public class Client : MonoBehaviour
     public static Client instance;
     public static int dataBufferSize = 4096;
 
-    public string ip = "127.0.0.1";
+    public string ip;
     public int port = 26950;
     public int myId = 0;
     public TCP tcp;
@@ -40,14 +40,17 @@ public class Client : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        tcp = new TCP();
-        udp = new UDP();
-    }
+//   private void Start()
+//    {
+//        
+//    }
 
     public void ConnectToServer()
     {
+        ip = NetworkUI.instance.IPField.text;
+
+        tcp = new TCP();
+        udp = new UDP();
         InitializeClientData();
         tcp.Connect();
         isConnected = true;
@@ -312,6 +315,9 @@ public class Client : MonoBehaviour
             { (int)ServerPackets.spawnProjectile, ClientHandle.SpwanProjectile},
             { (int)ServerPackets.projectilePosition, ClientHandle.ProjectilePosition},
             { (int)ServerPackets.projectileExploded, ClientHandle.ProjectileExploded},
+            { (int)ServerPackets.spawnEnemy, ClientHandle.SpawnEnemy},
+            { (int)ServerPackets.enemyPosition, ClientHandle.EnemyPosition},
+            { (int)ServerPackets.enemyHealth, ClientHandle.EnemyHealth}
 
 
         };

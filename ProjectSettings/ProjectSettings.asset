@@ -82,8 +82,8 @@ PlayerSettings:
   bakeCollisionMeshes: 0
   forceSingleInstance: 0
   useFlipModelSwapchain: 1
-  resizableWindow: 0
-  useMacAppStoreValidation: 0
+  resizableWindow: 1
+  useMacAppStoreValidation: 1
   macAppStoreCategory: public.app-category.games
   gpuSkinning: 1
   xboxPIXTextureCapture: 0
@@ -127,7 +127,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.29
+  bundleVersion: 0.4
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -655,7 +655,14 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
   cloudServicesEnabled:
+    Analytics: 1
+    Build: 0
+    Collab: 0
+    Game Performance: 0
+    Purchasing: 0
+    UDP: 0
     UNet: 1
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -669,11 +676,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 
+  cloudProjectId: 0d02d381-b9ba-4090-90d1-d676ed0eb230
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: FPS
+  organizationId: zaheerpatel
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   virtualTexturingSupportEnabled: 0

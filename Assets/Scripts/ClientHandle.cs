@@ -40,9 +40,14 @@ public class ClientHandle : MonoBehaviour
     {
         int _id = _packet.ReadInt();
         Vector3 _position = _packet.ReadVector3();
-        GameManager.players[_id].transform.position = _position;
 
-    
+        //FIXED: key not found in dictionary
+        if (GameManager.players.TryGetValue(_id, out PlayerManager _player))
+        {
+            _player.transform.position = _position;
+        }
+
+
     }
 
     public static void PlayerRotation(Packet _packet)
@@ -50,7 +55,13 @@ public class ClientHandle : MonoBehaviour
         int _id = _packet.ReadInt();
         Quaternion _rotation = _packet.ReadQuaternion();
 
-        GameManager.players[_id].transform.rotation = _rotation;
+        //FIXED: key not found in dictionary
+        if (GameManager.players.TryGetValue(_id, out PlayerManager _player))
+        {
+            _player.transform.rotation = _rotation;
+        }
+
+       
     }
 
     public static void PlayerDisconnected(Packet _packet)
@@ -115,8 +126,12 @@ public class ClientHandle : MonoBehaviour
         int _projectileId = _packet.ReadInt();
         Vector3 _position = _packet.ReadVector3();
 
+        //FIXED: key not found in dictionary
+        if (GameManager.projectiles.TryGetValue(_projectileId, out ProjectileManager _projectile))
+        {
+            _projectile.transform.position = _position;
+        }
 
-        GameManager.projectiles[_projectileId].transform.position = _position;
     }
 
     public static void ProjectileExploded(Packet _packet)
@@ -126,5 +141,38 @@ public class ClientHandle : MonoBehaviour
 
 
         GameManager.projectiles[_projectileId].Explode(_position);
+    }
+
+    public static void SpawnEnemy(Packet _packet)
+    {
+        int _enemyId = _packet.ReadInt();
+        Vector3 _position = _packet.ReadVector3();
+
+        GameManager.instance.SpwanEnemy(_enemyId, _position);
+    }
+
+    public static void EnemyPosition(Packet _packet)
+    {
+        
+        int _enemyId = _packet.ReadInt();
+        Vector3 _position = _packet.ReadVector3();
+
+        //FIXED: key not found in dictionary
+        //This is due to UDP being faster then TCP so packet arived before spawn packet
+        if (GameManager.enemies.TryGetValue(_enemyId, out EnemyManager _enemy))
+        {
+           _enemy.transform.position = _position;
+            
+        }
+            
+    }
+
+    public static void EnemyHealth(Packet _packet)
+    {
+        int _enemyId = _packet.ReadInt();
+        float _health = _packet.ReadFloat();
+
+        GameManager.enemies[_enemyId].SetHealth(_health);
+        Debug.Log("enemy health updated");
     }
 }

@@ -7,9 +7,17 @@ public class MenuButtons : MonoBehaviour
     public string statisticsScene = "stats";
     public string settingsScene = "settings";
     public string menuScene = "menu";
+    public GameObject GameManager;
+    public GameObject ClientManager;
+
     public void StartGame()
     {
+        GameManager = Instantiate(GameManager);
+        ClientManager = Instantiate(ClientManager);
+        Client.instance.ConnectToServer();
         SceneManager.LoadScene(mainScene);
+
+        
     }
     public void StatsButton()
     {

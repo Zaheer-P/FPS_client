@@ -8,6 +8,7 @@ public class NetworkUI : MonoBehaviour
     public static NetworkUI instance;
     public static GameObject mainMenu;
     public TMPro.TMP_InputField usernameField;
+    public TMPro.TMP_InputField IPField;
 
     //singleton implentation only allows on one instance
     private void Awake()
@@ -15,9 +16,7 @@ public class NetworkUI : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            // should not destory client manager not the canvas
-            //NEED TO FIX
-            //DontDestroyOnLoad(transform.root.gameObject);
+            
         }
         else if (instance != this)
         {
@@ -29,7 +28,8 @@ public class NetworkUI : MonoBehaviour
     public void ConnectToServer()
     {
         usernameField.interactable = false;
-        Client.instance.ConnectToServer();
+        IPField.interactable = false;
+        
         // not need instace created when start button pressed
         
     }
